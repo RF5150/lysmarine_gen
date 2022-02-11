@@ -1,7 +1,7 @@
 ---
 version: 2.1
 orbs:
-  cloudsmith: https://cloudsmith.io/~rfboat/repos/rfboat/packages/
+  cloudsmith: cloudsmith/cloudsmith@1.0.4
 executors:
   boot-linux:
     machine:
@@ -25,7 +25,7 @@ commands:
       - cloudsmith/install-cli
       - run:
           command: |
-            .circleci/publish-cloudsmith.sh img bbn-projects/bbn-repo ${PKG_DISTRO}/${PKG_RELEASE}
+            .circleci/publish-cloudsmith.sh https://cloudsmith.io/~rfboat/repos/rfboat/packages/
           no_output_timeout: 40m
   do-all:
     steps:
